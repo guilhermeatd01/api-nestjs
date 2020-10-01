@@ -1,0 +1,21 @@
+POST http://localhost:8080/profiles
+Content-Type: application/json
+{
+    "description": "Teste"
+}
+
+###
+GET http://localhost:8080/profiles
+
+###
+GET http://localhost:8080/profiles/1
+
+###
+PUT http://localhost:8080/profiles/4
+Content-Type: application/json
+{
+    "description": "Teste 2"
+}
+
+###
+DELETE http://localhost:8080/profiles/2
