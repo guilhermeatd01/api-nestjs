@@ -4,6 +4,8 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { Profile } from './profile/profile.entity';
 import { ProfileModule } from './profile/profile.module';
+import { User } from './user/user.entity';
+import { UserModule } from './user/user.module';
 
 @Module({
   imports: [
@@ -15,14 +17,15 @@ import { ProfileModule } from './profile/profile.module';
       "password": "root",
       "database": "lazaros",
       "synchronize": true,
-      "entities": [Profile],
+      "entities": [Profile, User],
       "migrationsTableName": "migrations",
       "migrations": ["src/migrations/*.js"],
       "cli": {
           "migrationsDir": "src/migrations"
       }
     }),
-    ProfileModule
+    ProfileModule,
+    UserModule
   ],
   controllers: [AppController],
   providers: [AppService],
