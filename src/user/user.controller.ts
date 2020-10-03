@@ -1,4 +1,12 @@
-import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Put,
+} from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Profile } from 'src/profile/profile.entity';
 import { DeleteResult, Repository } from 'typeorm';
@@ -16,7 +24,7 @@ export class UserController {
 
   @Get()
   async index(): Promise<User[]> {
-    return this.userRepository.find({ relations: ['profiles'] });
+    return this.userRepository.find({order: {id: "ASC"}, relations: ['profiles'] });
   }
 
   @Get(':id')

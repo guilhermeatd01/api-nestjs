@@ -12,7 +12,7 @@ export class ProfileController {
 
   @Get()
   async index(): Promise<Profile[]> {
-    return this.profileRepository.find();
+    return this.profileRepository.find({order: {id: "ASC"}});
   }
 
   @Get(':id')
